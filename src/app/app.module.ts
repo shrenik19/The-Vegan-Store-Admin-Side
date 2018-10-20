@@ -1,16 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CategoryComponent } from './category/category.component';
+import { FormsModule} from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+import { HttpModule,Http } from '@angular/http'; 
+import { Router } from '@angular/router';
+import { routing } from './app.routing';
+import { MatInputModule,MatButtonModule,MatIconModule,MatTableModule,MatFormFieldModule,MatFormFieldControl,MatPaginatorModule
+  ,MatProgressSpinnerModule,MatCheckboxModule,MatSortModule,MatCardModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule } from '@angular/material';
+import { ProductComponent } from './product/product.component';
+import { UpdateCatComponent } from './update-cat/update-cat.component';
+import { MenuComponent } from './menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { AddproComponent } from './addpro/addpro.component';
+import { UpdateProComponent } from './update-pro/update-pro.component';
+  
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategoryComponent,
+    ProductComponent,
+    UpdateCatComponent,
+    MenuComponent,
+    AddproComponent,
+    UpdateProComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpModule,
+    routing,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,MatPaginatorModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatSortModule,
+    MatCardModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

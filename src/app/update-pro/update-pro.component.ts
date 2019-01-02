@@ -22,6 +22,7 @@ export class UpdateProComponent implements OnInit {
   x:number;
   prodarr:product_class[]=[];
   selectedFile:File=null;
+  flag:boolean=false;
   constructor(private _route:Router,private _acroute:ActivatedRoute,private _proser:ProductService) { }
   onSave(){
     const fd=new FormData();
@@ -35,29 +36,41 @@ export class UpdateProComponent implements OnInit {
     fd.append('p_img',this.selectedFile,this.selectedFile.name);
     fd.append('buffer_stock',this.buffer_stock.toString());
     fd.append('fk_s_id',this.fk_s_id.toString());
-    console.log(this.p_name);
-    console.log(this.p_price);
-    console.log(this.p_qty);
-    console.log(this.fk_cat_id);
-    console.log(this.p_mfg);
-    console.log(this.p_img);
-    console.log(this.fk_s_id);
-    console.log(this.buffer_stock);
-    console.log(this.p_id);
-
+    
+    if(this.flag==true)
+    {
     this._proser.updatepro(fd).subscribe(
       (data:any)=>{
       //  console.log(data);
         this.prodarr.push(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id));
-         this._route.navigate(['/product']);
+         this._route.navigate(['menu/product']);
       }
     );
+    }
+    else
+    {
+
+      /*this.prodarr.push(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id)).subscribe(
+        (data:any)=>{
+          console.log(data);
+           this._route.navigate(['/product']);
+        }
+      );*/
       } 
+    }
     oncancel(){
-      this._route.navigate(['/product']);
+      this._route.navigate(['menu/product']);
     }
     onchange(value){
       this.selectedFile=<File>value.target.files[0];
+      if(this.selectedFile)
+      {
+        this.flag=true;
+      }
+      else
+      {
+        this.flag=false
+      }
     }
   ngOnInit() {
     this.x=this._acroute.snapshot.params['p_id'];
@@ -74,17 +87,6 @@ export class UpdateProComponent implements OnInit {
           this.buffer_stock=data[0].buffer_stock;
           this.fk_s_id=data[0].fk_s_id;
 
-
-          console.log(this.p_name);
-          console.log(this.p_price);
-          console.log(this.p_qty);
-          console.log(this.fk_cat_id);
-          console.log(this.p_mfg);
-          console.log(this.p_img);
-          console.log(this.fk_s_id);
-          console.log(this.buffer_stock);
-          console.log(this.p_id);
-      
        }
      );
   }

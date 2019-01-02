@@ -40,7 +40,7 @@ export class ProductComponent implements OnInit {
   }
 
 onupdatepro(item){
-  this._route.navigate(['/update-pro',item.p_id]);
+  this._route.navigate(['menu/update-pro',item.p_id]);
 }
 onAll(){
   this._proser.getAllproduct().subscribe(
@@ -101,7 +101,7 @@ oncat(cat_name){
     
   }
   onAddpro(){
-    this._route.navigate(['/addpro']);
+    this._route.navigate(['menu/addpro']);
   }
 
 

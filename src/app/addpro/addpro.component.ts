@@ -49,7 +49,7 @@ export class AddproComponent implements OnInit {
       (data:product_class[])=>{
         console.log(data);
         this.prodarr.push(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id))
-        this._route.navigate(['/product'])
+        this._route.navigate(['menu/product'])
       }
     );
   }

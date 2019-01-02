@@ -1,0 +1,31 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 container" matSort>
+    <!-- Position Column -->
+
+    <ng-container matColumnDef="p_img">
+      <th mat-header-cell *matHeaderCellDef><b>Product Image</b>  </th>
+      <td mat-cell  *matCellDef="let element"> <img src="http://localhost:3000/images/product/{{element.p_img}}" height="70px" style="border-radius: 150px;width:70px;"> </td>
+    </ng-container>
+
+      <ng-container matColumnDef="p_name">
+        <th mat-header-cell *matHeaderCellDef> Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.p_name}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="p_price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price  </th>
+        <td mat-cell *matCellDef="let element"> {{element.p_price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="qty">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> QTY  </th>
+        <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[1,2,5]"></mat-paginator>
+
+
+

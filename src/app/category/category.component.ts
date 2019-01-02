@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
   }
 
 onupdate(item){
-  this._route.navigate(['/update-cat',item.cat_id]);
+  this._route.navigate(['menu/update-cat',item.cat_id]);
 }
 ondeletecat(item:category_class){
   this._catser.deletecatByID(item).subscribe(

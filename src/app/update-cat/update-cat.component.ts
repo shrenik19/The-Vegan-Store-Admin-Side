@@ -20,12 +20,12 @@ export class UpdateCatComponent implements OnInit {
     this._catser.updatecat(new category_class(this.cat_name,this.cat_id)).subscribe(
       (data:any)=>{
         console.log(data);
-         this._route.navigate(['']);
+         this._route.navigate(['menu/category']);
       }
     );
       } 
     oncancel(){
-      this._route.navigate(['']);
+      this._route.navigate(['menu/category']);
     }
   ngOnInit() {
     this.x=this._acroute.snapshot.params['cat_id'];

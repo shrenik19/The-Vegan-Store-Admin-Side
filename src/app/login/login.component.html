@@ -1,0 +1,136 @@
+ <!-- <div class="div1 loginbox container">
+  <table style="width: 600px;">
+ <h1 class="a" style="margin-left:200px;font-family: -webkit-body;">Login</h1>
+  <div>
+   <label class="text" style="font-family: initial;">Email_id</label>&nbsp;&nbsp;
+   <input type="email" [(ngModel)]="user_id" placeholder="Enter Email_id" class="textbox" style="width: 500px;height: 30px;margin-left:5px;"> 
+ </div> 
+ <div class="example-container"><b>Email_id</b>&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-form-field style="
+  width: 500px;
+"> 
+    <input matInput #user_id1="ngModel"
+    [(ngModel)]="email_id"
+     placeholder="Enter Email_id"
+     required>
+     <mat-error> Email is required</mat-error>
+  </mat-form-field>
+  
+</div>
+ <br>
+ <div class="example-container"><b>Password</b>&nbsp;&nbsp;
+    <mat-form-field hintLabel="Max 8 characters" style="
+    width: 500px;
+">
+      <input matInput #password1="ngModel" style="color:blanchedalmond;"
+      [(ngModel)]="password"
+      required
+      maxlength="10"
+       placeholder="Enter Password" [type]="flag ? 'password' : 'text'">
+       <mat-icon matSuffix (click)="flag=!flag">
+          {{flag?'visibility':'visibility_off'}}
+        </mat-icon>
+        <mat-error>This Field is required</mat-error>
+      <mat-hint align="end">{{password1.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+  </div>
+  <br>
+  <br>
+  <div>
+    <button (click)="onLogin()" class="login" class="btn btn-primary" style="width: 200px;margin-left: 83px;">Login</button>
+	<button (click)="onsignup()" class="login" class="btn btn-primary" style="margin-top: -52px;width: 200px;margin-left: 350px;">SignUp</button>
+	
+
+	<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter userid">
+						<input class="input100" type="text" name="username" #user_id1="ngModel"
+            [(ngModel)]="email_id"
+             required>
+						<span class="focus-input100" data-placeholder="Username"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" style="margin-top: 60px;" [(ngModel)]="password"
+						required maxlength="10" [type]="flag ? 'password' : 'text'">
+						 <mat-icon  matSuffix (click)="flag=!flag" style="
+						 margin-left: 366px;
+					 ">
+							{{flag?'visibility':'visibility_off'}}
+						  </mat-icon>
+						   <mat-error>This Field is required</mat-error>
+						<mat-hint align="end">{{password1.value?.length || 0}}/10</mat-hint>>
+						<span class="focus-input100" data-placeholder="Password" ></span>
+					</div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+  <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-85 p-b-20">
+				<form class="login100-form validate-form" (ngSubmit)="addForm(f)" #f="ngForm">
+					<span class="login100-form-title p-b-70">
+						Welcome
+					</span>
+					<span class="login100-form-avatar">
+						<img src="http://localhost:3000/images/product/logo.jpg" alt="AVATAR">
+					</span>
+
+					
+					  <div class="example-container" style="color:lightgreen;"><b>Email_id</b>&nbsp;&nbsp;&nbsp;&nbsp;
+					   <mat-form-field style="
+					   width: 300px;color:#0A0906"> 
+						 <input matInput #user_id1="ngModel"
+						 [(ngModel)]="email_id"
+						 name="email_id"
+						  placeholder="Enter Email_id"
+						  required>
+						  <mat-error> Email is required</mat-error>
+					   </mat-form-field>
+					   
+					 </div>
+					  <br>
+					  <div class="example-container" style="color:lightgreen;"><b>Password</b>&nbsp;&nbsp;
+						 <mat-form-field hintLabel="Max 8 characters" style="
+						 width: 300px;
+					 ">
+						   <input matInput #password1="ngModel" style="color:#0A0906;"
+						   [(ngModel)]="password"
+						   required
+						   maxlength="10"
+						   name="password"
+							placeholder="Enter Password" [type]="flag ? 'password' : 'text'">
+							<mat-icon matSuffix (click)="flag=!flag">
+							   {{flag?'visibility':'visibility_off'}}
+							 </mat-icon>
+							 <mat-error>This Field is required</mat-error>
+						   <mat-hint align="end">{{password1.value?.length || 0}}/10</mat-hint>
+						 </mat-form-field>
+					   </div>
+					   
+					<div class="container-login100-form-btn">
+						<button [disabled]="!f.valid" (click)="onLogin()" class="login100-form-btn" style="margin-top: 60px;">
+							Login
+						</button>
+					</div>
+
+					<ul class="login-more p-t-190">
+						<li class="m-b-8">
+							<span class="txt1">
+								Forgot
+							</span>
+
+							<a  class="txt2" (click)="onforget()">
+								Username / Password?
+							</a>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>

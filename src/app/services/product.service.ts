@@ -40,4 +40,9 @@ export class ProductService {
   updatepro(item:FormData){
     return this._http.put(this.product,item)
   }
+  updateprowithoutimg(item:product_class){
+      let body=JSON.stringify(item)
+      let head1=new HttpHeaders().set('Content-Type','application/json');
+      return this._http.put(this.product+item,body,{headers:head1})
+  }
 }

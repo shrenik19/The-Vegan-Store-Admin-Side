@@ -10,13 +10,19 @@ import { HttpModule,Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { routing } from './app.routing';
 import { MatInputModule,MatButtonModule,MatIconModule,MatTableModule,MatFormFieldModule,MatFormFieldControl,MatPaginatorModule
-  ,MatProgressSpinnerModule,MatCheckboxModule,MatSortModule,MatCardModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule } from '@angular/material';
+  ,MatProgressSpinnerModule,MatCheckboxModule,MatSortModule,MatCardModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule,MatExpansionPanelDescription,MatExpansionModule,MatExpansionPanel,MatAccordion,MatExpansionPanelTitle} from '@angular/material';
 import { ProductComponent } from './product/product.component';
 import { UpdateCatComponent } from './update-cat/update-cat.component';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AddproComponent } from './addpro/addpro.component';
 import { UpdateProComponent } from './update-pro/update-pro.component';
+import { TotalbillComponent } from './totalbill/totalbill.component';
+import { LoginComponent } from './login/login.component';
+import { BilldetailComponent } from './billdetail/billdetail.component';
+import { OrderComponent } from './order/order.component';
+import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
   
 
 
@@ -29,7 +35,13 @@ import { UpdateProComponent } from './update-pro/update-pro.component';
     UpdateCatComponent,
     MenuComponent,
     AddproComponent,
-    UpdateProComponent
+    UpdateProComponent,
+    TotalbillComponent,
+    LoginComponent,
+    BilldetailComponent,
+    OrderComponent,
+    OrderdetailComponent,
+    ForgetpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +63,8 @@ import { UpdateProComponent } from './update-pro/update-pro.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

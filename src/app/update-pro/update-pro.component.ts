@@ -25,38 +25,45 @@ export class UpdateProComponent implements OnInit {
   flag:boolean=false;
   constructor(private _route:Router,private _acroute:ActivatedRoute,private _proser:ProductService) { }
   onSave(){
-    const fd=new FormData();
+    // const fd=new FormData();
     
-    fd.append('p_id',this.p_id.toString());
-    fd.append('p_name',this.p_name);
-    fd.append('p_price',this.p_price.toString());
-    fd.append('p_qty',this.p_qty.toString());
-    fd.append('fk_cat_id',this.fk_cat_id.toString());
-    fd.append('p_mfg',this.p_mfg);
-    fd.append('p_img',this.selectedFile,this.selectedFile.name);
-    fd.append('buffer_stock',this.buffer_stock.toString());
-    fd.append('fk_s_id',this.fk_s_id.toString());
+    // fd.append('p_id',this.p_id.toString());
+    // fd.append('p_name',this.p_name);
+    // fd.append('p_price',this.p_price.toString());
+    // fd.append('p_qty',this.p_qty.toString());
+    // fd.append('fk_cat_id',this.fk_cat_id.toString());
+    // fd.append('p_mfg',this.p_mfg);
+    // fd.append('p_img',this.selectedFile,this.selectedFile.name);
+    // fd.append('buffer_stock',this.buffer_stock.toString());
+    // fd.append('fk_s_id',this.fk_s_id.toString());
     
-    if(this.flag==true)
-    {
-    this._proser.updatepro(fd).subscribe(
+
+    this._proser.updateprowithoutimg(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id)).subscribe(
       (data:any)=>{
-      //  console.log(data);
-        this.prodarr.push(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id));
-         this._route.navigate(['menu/product']);
+        this._route.navigate(['menu/product']);
       }
     );
-    }
-    else
-    {
 
-      /*this.prodarr.push(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id)).subscribe(
-        (data:any)=>{
-          console.log(data);
-           this._route.navigate(['/product']);
-        }
-      );*/
-      } 
+    // if(this.flag==true)
+    // {
+    //   this._proser.updatepro(fd).subscribe(
+    //     (data:any)=>{
+    //       console.log("hello");
+    //       this.prodarr.push(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id));
+    //        this._route.navigate(['menu/product']);
+    //     }
+    //   );
+    // }
+    // else
+    // {
+
+    //   // this.prodarr.push(new product_class(this.p_name,this.p_price,this.p_qty,this.fk_cat_id,this.p_mfg,this.p_img,this.buffer_stock,this.fk_s_id,this.p_id)).subscribe(
+    //   //   (data:any)=>{
+    //   //     console.log(data);
+    //   //      this._route.navigate(['/product']);
+    //   //   }
+    //   // );
+    //   } 
     }
     oncancel(){
       this._route.navigate(['menu/product']);

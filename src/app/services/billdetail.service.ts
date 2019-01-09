@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { bill_class } from '../Classes/bill';
+import { billdetail_class } from '../Classes/billdetail';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,5 +12,10 @@ export class BilldetailService {
     console.log(bill_id);
     return this._http.get(this.billdetail+bill_id);
   }
+   addbilldetail(item){
+     let body=JSON.stringify(item)
+     let head1=new HttpHeaders().set('Content-Type','application/json');
+     return this._http.post(this.billdetail,body,{headers:head1})
+ }
 
 }

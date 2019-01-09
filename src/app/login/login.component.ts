@@ -15,12 +15,10 @@ export class LoginComponent implements OnInit {
   password:string;
   u_type:string;
   flag:boolean=true;
-  
   constructor(private _loginser:LoginService,private _r:Router) { }
   onsignup(){
     this._r.navigate(['/signup'])
   }
-  
   onLogin(){
     console.log(this.email_id,this.password);
     this._loginser.getUserLogin(new info_class(this.email_id,this.password)).subscribe(
@@ -32,7 +30,7 @@ export class LoginComponent implements OnInit {
         prompt("","Login Successfully");
         console.log(this.u_type);
         console.log(localStorage.getItem('email_id'))
-           this._r.navigate(['menu'])
+        this._r.navigate(['menu'])
         }
         else
         {

@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="http://localhost:3000/images/product/profile.jpg" style="height: 113px;border-radius: 80px;top:40px;">
+      <button type="submit" class="btn" mat-raised-button color="primary" (click)="onupdate()" style="margin-left: 91px;">Update Profile</button>
+      <button mat-raised-button class="btn" style="margin-left: 7px;" color="warn" (click)="onpswd()">Update Password</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+    </div>
+  </div>
+</div>
+
+
+
+<form class="example-form container" style="font-size: 15px;">
+  <b style="margin-left: -10px;">Email Id</b>
+  <mat-form-field class="example-full-width" style="width: 585px;margin-left:46px;">
+      <input disabled matInput style="margin-left: 6px;" [(ngModel)]="email_id" name="email_id">
+    </mat-form-field>
+  <br>
+  <b style="margin-left: -10px;">Name</b>
+<mat-form-field class="example-full-width" style="width: 585px;margin-left:58px;">
+    <input disabled matInput style="margin-left: 6px;" [(ngModel)]="u_name" name="u_name">
+  </mat-form-field>
+<br>
+<b style="margin-left: -10px;">Gender</b>
+  <mat-form-field class="example-full-width" style="width: 585px;margin-left:48px;">
+    <input disabled matInput style="margin-left: 6px;" [(ngModel)]="u_gender" name="u_gender">
+  </mat-form-field>
+  <br>
+  <b style="margin-left: -10px;">Address</b>
+  <mat-form-field class="example-full-width" style="width: 585px;margin-left:38px;">
+    <input disabled matInput style="margin-left:6px;" [(ngModel)]="u_address" name="u_address">
+  </mat-form-field>
+  <br>
+  <b style="margin-left: -10px;">City</b>
+  <mat-form-field class="example-full-width" style="width: 585px;margin-left:65px;">
+    <input disabled matInput matInput style="margin-left:6px;" [(ngModel)]="u_city" name="u_city">
+  </mat-form-field>
+  <br>
+  <b style="margin-left: -10px;">Mobile No.</b>
+  <mat-form-field class="example-full-width" style="width: 585px;margin-left:19px;">
+    <input disabled matInput style="margin-left:6px;" [(ngModel)]="u_mno" name="u_mno">
+  </mat-form-field>
+  <br>
+  
+</form>
+
+
+
+

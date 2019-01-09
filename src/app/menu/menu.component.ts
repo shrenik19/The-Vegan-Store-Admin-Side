@@ -15,11 +15,22 @@ img1:string="C:\Users\KD Shah\Desktop\pic1.jpg";
     .pipe(
       map(result => result.matches)
     );
-    
-  constructor(private breakpointObserver: BreakpointObserver,private _route:Router) {}
+constructor(private breakpointObserver: BreakpointObserver,private _route:Router) {}
   onlogout()
   {
     this._route.navigate([''])
     localStorage.setItem(' '," ");
   }
-  }
+onicon()
+ {
+    this._route.navigate(['dashboard']);
+ }
+
+}
+
+
+
+
+
+
+

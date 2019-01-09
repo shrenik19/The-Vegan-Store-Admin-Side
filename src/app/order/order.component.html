@@ -11,27 +11,33 @@
       <th mat-header-cell *matHeaderCellDef> Total Amount </th>
       <td mat-cell *matCellDef="let element"> {{element.o_price}} </td>
     </ng-container>
-  
     <!-- Name Column -->
     <ng-container matColumnDef="o_date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date  </th>
       <td mat-cell *matCellDef="let element"> {{element.o_date}} </td>
     </ng-container>
-  
+
     <!-- Name Column -->
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Action  </th>
       <td mat-cell *matCellDef="let element">
-        <button (click)="oncheck(element)" style="border-radius:90px;"><mat-icon >check_circle</mat-icon></button>&nbsp;&nbsp;
-        <button (click)="oncancel(element)" style="border-radius:90px;"><mat-icon >highlight_off</mat-icon></button>
+        <!-- <button (click)="oncheck(element)" style="border-radius:90px;"><mat-icon >check_circle</mat-icon></button>&nbsp;&nbsp;
+        <button (click)="oncancel(element)" style="border-radius:90px;"><mat-icon >highlight_off</mat-icon></button> -->
+
+        <button mat-mini-fab color="primary" (click)="oncheck(element)">
+          <mat-icon aria-label="Example icon-button with a heart icon">check_circle</mat-icon>
+        </button>&nbsp;&nbsp;
+        <button mat-mini-fab color="primary" (click)="oncancel(element)">
+          <mat-icon aria-label="Example icon-button with a heart icon">highlight_off</mat-icon>
+        </button>
       </td>
     </ng-container>
-  
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
   </table>
   
-  <table mat-table [dataSource]="dataSource" *ngIf="dataSource.length==0">
+  <!-- <table mat-table [dataSource]="dataSource" *ngIf="dataSource.length==0">
     <p>YOU HAVE NO ORDERS</p>  
-  </table>
+  </table> -->

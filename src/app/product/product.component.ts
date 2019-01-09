@@ -120,5 +120,6 @@ oncat(cat_name){
         this.catarr=data;
       }
     );
-    }
+
+  }
 }

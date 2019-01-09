@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+    </div>
+  </div>
+</div>
+
+
+
+<form class="example-form container" style="font-size: 15px;">
+  <b style="margin-left: -10px;">Name</b>
+<mat-form-field class="example-full-width" style="width: 585px;margin-left:58px;">
+    <input matInput style="margin-left: 6px;" [(ngModel)]="s_name" name="s_name">
+  </mat-form-field>
+<br>
+<b style="margin-left: -10px;">Mobile No.</b>
+  <mat-form-field class="example-full-width" style="width: 585px;margin-left:50px;">
+    <input matInput style="margin-left: 6px;" [(ngModel)]="s_mno" name="s_mno">
+  </mat-form-field>
+  <br>
+  <b style="margin-left: -10px;">Address</b>
+  <mat-form-field class="example-full-width" style="width: 585px;margin-left:43px;">
+    <input matInput style="margin-left:6px;" [(ngModel)]="s_address" name="s_address">
+  </mat-form-field>
+  <br>
+  <button type="submit" class="btn" mat-raised-button color="primary" (click)="onsave()" style="margin-left: 91px;">Update Profile</button>
+  <button mat-raised-button class="btn" style="margin-left: 7px;" color="warn" (click)="oncancel()">Cancel</button>
+</form>
+
+
+
+

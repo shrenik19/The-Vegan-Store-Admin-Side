@@ -6,11 +6,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryComponent } from './category/category.component';
 import { FormsModule} from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
-import { HttpModule,Http } from '@angular/http'; 
+import { HttpModule,Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { routing } from './app.routing';
-import { MatInputModule,MatButtonModule,MatIconModule,MatTableModule,MatFormFieldModule,MatFormFieldControl,MatPaginatorModule
-  ,MatProgressSpinnerModule,MatCheckboxModule,MatSortModule,MatCardModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule,MatExpansionPanelDescription,MatExpansionModule,MatExpansionPanel,MatAccordion,MatExpansionPanelTitle} from '@angular/material';
+import { MatInputModule,MatButtonModule,MatIconModule,MatTableModule,MatFormFieldModule,MatFormFieldControl,MatPaginatorModule,MatProgressSpinnerModule,MatCheckboxModule,MatSortModule,MatCardModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule,MatExpansionPanelDescription,MatExpansionModule,MatExpansionPanel,MatAccordion,MatExpansionPanelTitle,MatGridListModule,MatMenuModule} from '@angular/material';
+
 import { ProductComponent } from './product/product.component';
 import { UpdateCatComponent } from './update-cat/update-cat.component';
 import { MenuComponent } from './menu/menu.component';
@@ -23,8 +23,14 @@ import { BilldetailComponent } from './billdetail/billdetail.component';
 import { OrderComponent } from './order/order.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
-  
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { UpdateSupplierComponent } from './update-supplier/update-supplier.component';
+import { ProductreminderComponent } from './productreminder/productreminder.component';
 
 
 @NgModule({
@@ -41,7 +47,16 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
     BilldetailComponent,
     OrderComponent,
     OrderdetailComponent,
-    ForgetpasswordComponent
+    ForgetpasswordComponent,
+    DashboardComponent,
+    SignupComponent,
+    ProfileComponent,
+    UpdateProfileComponent,
+    UpdatePasswordComponent,
+    SupplierComponent,
+    UpdateSupplierComponent,
+    ProductreminderComponent
+
   ],
   imports: [
     BrowserModule,
@@ -64,7 +79,10 @@ import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.compone
     MatSidenavModule,
     MatListModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

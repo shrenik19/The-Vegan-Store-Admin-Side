@@ -8,6 +8,8 @@ import { product_class } from '../Classes/product';
 })
 export class ProductService {
   private product:string='http://Localhost:3000/product/';
+  private productwithoutimg:string='http://Localhost:3000/productUpdatewithoutimg/';
+  private bufferproduct:string='http://Localhost:3000/reminder/';
   private addpro:string='http://Localhost:3000/addpro/';
   private deleteallpro:string='http://Localhost:3000/deleteandgetallpro/';
   
@@ -37,12 +39,16 @@ export class ProductService {
     console.log(p_id)
     return this._http.get(this.product+p_id)
   }
+  getallbufferproduct()
+  {
+    return this._http.get(this.bufferproduct)
+  }
   updatepro(item:FormData){
     return this._http.put(this.product,item)
   }
   updateprowithoutimg(item:product_class){
       let body=JSON.stringify(item)
       let head1=new HttpHeaders().set('Content-Type','application/json');
-      return this._http.put(this.product+item,body,{headers:head1})
+      return this._http.put(this.productwithoutimg+item.p_id,body,{headers:head1})
   }
 }

@@ -26,7 +26,7 @@
                       <div [hidden]="!catname?.errors?.required"></div>
                       <mat-error>Category Name Is required</mat-error>
                     </div>
-                    <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary"  (click)="onaddcat()">Add</button>
+                    <button type="submit" [disabled]="!f.valid" mat-raised-button color="primary"  (click)="onaddcat()">Add</button>&nbsp;&nbsp;
                     <button mat-raised-button color="warn" (click)="oncancel()">Cancel</button>
                     
                   </div>
@@ -43,7 +43,7 @@
 
 
 <mat-form-field class="home">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search....">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Category">
   </mat-form-field>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
        

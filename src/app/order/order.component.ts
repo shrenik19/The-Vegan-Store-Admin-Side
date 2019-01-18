@@ -36,9 +36,10 @@ export class OrderComponent implements OnInit {
   i:number;
   fk_o_id:number[]=[];
   insertId:number;
+  delarr:order_class[]=[];
   constructor(private _bill:TotalbillService,private _billdetail:BilldetailService,private _orderdetail:OrderdetailService,private _order:OrderService,private _route:Router) { }
   dataSource=new MatTableDataSource(this.orderarr)
-  displayedColumns:string[] = ['fk_email_id','o_price','o_date','action'];
+  displayedColumns:string[] = ['Action','fk_email_id','o_price','o_date','action'];
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -46,6 +47,19 @@ export class OrderComponent implements OnInit {
   onclickdone(item){
      this._route.navigate(['menu/billdetail',item.bill_id])
   }
+  onclose(){
+    this._route.navigate(['menu/dashboard']);
+  }
+  ondelete(item){
+    this._order.singleOrderdelete(item).subscribe(
+      (data:product_class)=>{
+        this.orderarr.splice(this.orderarr.indexOf(item),1)
+        console.log(this.orderarr)
+        this.ngOnInit();
+      }  
+    );
+}
+
   oncheck(item){
     this.bill_details_arr.splice(0,this.bill_details_arr.length);
     this.bill_amt=this.o_price;
@@ -75,13 +89,33 @@ export class OrderComponent implements OnInit {
             }
           );
           alert("Successfully Added");
-
+          this.ondelete(item);
         }
     );
   }
-  oncancel(item)
+  checkchange(item:order_class){
+    if(this.delarr.find(x=>x==item)){
+      this.delarr.splice(this.delarr.indexOf(item),1)
+    }
+    else
+    {
+      this.delarr.push(item)
+    }
+    console.log(this.delarr)
+}
+  oncancel()
   {
-
+    this._order.deleteallorder(this.delarr).subscribe(
+      (x:any)=>{
+      for(this.i=0;this.i<this.delarr.length;this.i++){
+          if(this.orderarr.find(x=>x==this.delarr[this.i])){
+              this.orderarr.splice(this.orderarr.indexOf(this.delarr[this.i]),1);
+            console.log(this.orderarr)
+          }
+        }
+        this.dataSource.data=this.orderarr;
+      }
+    );
   }
   ngOnInit() {
     this._order.getallorder().subscribe(

@@ -31,6 +31,7 @@ import { UpdatePasswordComponent } from './update-password/update-password.compo
 import { SupplierComponent } from './supplier/supplier.component';
 import { UpdateSupplierComponent } from './update-supplier/update-supplier.component';
 import { ProductreminderComponent } from './productreminder/productreminder.component';
+import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ProductreminderComponent } from './productreminder/productreminder.comp
     UpdatePasswordComponent,
     SupplierComponent,
     UpdateSupplierComponent,
-    ProductreminderComponent
+    ProductreminderComponent,
+    AddsupplierComponent
 
   ],
   imports: [

@@ -53,6 +53,9 @@ export class AddproComponent implements OnInit {
       }
     );
   }
+  oncancel(){
+    this._route.navigate(['menu/product'])
+  }
   ngOnInit() {
     this._catser.getAllcat().subscribe(
       (data:any[])=>{

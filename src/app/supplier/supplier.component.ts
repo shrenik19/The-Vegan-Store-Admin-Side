@@ -43,7 +43,9 @@ export class SupplierComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  onAddsupplier(){
+    this._route.navigate(['menu/addsupplier']);
+  }
 onupdatesupplier(item:supplier_class){
   this._route.navigate(['menu/update-supplier',item.s_id]);
 }
@@ -95,7 +97,7 @@ onupdatesupplier(item:supplier_class){
   //   );
   // }
 
-  ondeletepro(item:supplier_class){
+  ondeletesupplier(item:supplier_class){
     this._supplierservice.deletesupplierByID(item).subscribe(
       (data:supplier_class)=>{
         this.supplierarr.splice(this.supplierarr.indexOf(item),1)

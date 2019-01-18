@@ -17,10 +17,11 @@ import { UpdatePasswordComponent } from './update-password/update-password.compo
 import { SupplierComponent } from './supplier/supplier.component'
 import { UpdateSupplierComponent } from './update-supplier/update-supplier.component';
 import { ProductreminderComponent } from './productreminder/productreminder.component';
+import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 const arr:Routes=[
                 {path:'',component:LoginComponent},
                 {path:'menu',component:MenuComponent,children:[
-                    {path:'',component:DashboardComponent},
+                    {path:'dashboard',component:DashboardComponent},
                     {path:'category',component:CategoryComponent},
                     {path:'product',component:ProductComponent},
                     {path:'totalbill',component:TotalbillComponent},
@@ -30,6 +31,7 @@ const arr:Routes=[
                     {path:'update-profile/:email_id',component:UpdateProfileComponent},
                     {path:'update-password/:email_id',component:UpdatePasswordComponent},
                     {path:'addpro',component:AddproComponent},
+                    {path:'addsupplier',component:AddsupplierComponent},
                     {path:'billdetail/:bill_id',component:BilldetailComponent},    
                     {path:'profile',component:ProfileComponent},    
                     {path:'supplier',component:SupplierComponent},

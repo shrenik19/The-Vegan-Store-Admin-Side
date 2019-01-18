@@ -27,7 +27,7 @@ onforget(){
 
           }
         );
-       alert('Password will end on your mail');
+       alert('Password will send on your mail');
        this._route.navigate(['']);
       }
       else

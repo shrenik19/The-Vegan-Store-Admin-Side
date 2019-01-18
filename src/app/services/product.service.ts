@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { product_class } from '../Classes/product';
+import { proupdate_class } from '../Classes/proupdate';
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +47,7 @@ export class ProductService {
   updatepro(item:FormData){
     return this._http.put(this.product,item)
   }
-  updateprowithoutimg(item:product_class){
+  updateprowithoutimg(item:proupdate_class){
       let body=JSON.stringify(item)
       let head1=new HttpHeaders().set('Content-Type','application/json');
       return this._http.put(this.productwithoutimg+item.p_id,body,{headers:head1})

@@ -11,13 +11,13 @@
     </div>
     <div class="col-md-2">
         <div>
-            <button mat-raised-button color="primary" (click)="onAddpro()"><mat-icon>add</mat-icon>  Add New Product</button>
+            <button mat-raised-button color="primary" (click)="onAddsupplier()"><mat-icon>add</mat-icon>  Add New Supplier</button>
         </div>
     </div>
   </div>
 </div>
 <mat-form-field class="home" style="width: 400px;font-size: 20px;">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Product" >
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search supplier" >
 </mat-form-field>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
      

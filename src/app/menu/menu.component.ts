@@ -23,9 +23,11 @@ constructor(private breakpointObserver: BreakpointObserver,private _route:Router
   }
 onicon()
  {
-    this._route.navigate(['dashboard']);
+    this._route.navigate(['menu/dashboard']);
  }
-
+ ngOnInit() {
+  this._route.navigate(['menu/dashboard']);
+}
 }
 
 

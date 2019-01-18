@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+        <!-- style="font-size: 30px;margin-left:10px;margin-top:-40px;" -->
+      <p><b style="font-size: 30px;">Add New Supplier</b></p>
+    </div>
+    <div class="col-md-3">
+      <button mat-raised-button color="primary" [disabled]="!f.valid" (click)="onaddsup()"><mat-icon>add</mat-icon>  Add New Supplier</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+    </div>
+  </div>
+</div>
+
+<form class="example-form container" style="font-size: 15px;" (ngSubmit)="addForm(f)" #f="ngForm">
+    <div class="container">
+        <div class="form-group">
+    
+        Supplier Name
+        <mat-form-field class="example-full-width" style="width: 585px;margin-left:30px;">&nbsp;&nbsp;
+        <input matInput placeholder="Enter Name" id="user_id" required
+        name="user_id"
+        #userid="ngModel" [(ngModel)]="s_name" name="user_id">
+        </mat-form-field>
+        <div [hidden]="userid.valid || userid.untouched">
+            <div [hidden]="!userid?.errors?.required"></div>
+            <mat-error>Name is required*</mat-error>
+        </div>
+        <br>
+        category Name
+        <mat-form-field class="example-full-width" style="width: 585px;margin-left:23px;">&nbsp;&nbsp;
+        <mat-select placeholder="select Category" [(ngModel)]="fk_cat_id" name="fk_cat_id"
+        id="fk_cat_id" required
+        name="fk_cat_id"
+        #fkcatid="ngModel" (selectionChange)="onclickcat(item)" >
+            <mat-option  *ngFor="let item of catarr" [value]="item.cat_id">{{item.cat_name}}</mat-option>
+        </mat-select>
+        </mat-form-field>
+        <div [hidden]="fkcatid.valid || fkcatid.untouched">
+            <div [hidden]="!fkcatid?.errors?.required"></div>
+            <mat-error>Please Select Category*</mat-error>
+        </div>
+        <br>
+        product Name
+        <mat-form-field class="example-full-width" style="width: 585px;margin-left:28px;">&nbsp;&nbsp;
+          <mat-select placeholder="select product" [(ngModel)]="fk_p_id" name="fk_p_id"
+          id="fk_p_id" required
+          name="fk_p_id"
+          #fkpid="ngModel">
+              <mat-option *ngFor="let item of prodarr" [value]="item.p_id">{{item.p_name}}</mat-option>
+          </mat-select>
+          </mat-form-field>
+          <div [hidden]="fkpid.valid || fkpid.untouched">
+              <div [hidden]="!fkpid?.errors?.required"></div>
+              <mat-error>Please Select Product Name*</mat-error>
+          </div>
+        <br>
+        Mobile No.
+       <mat-form-field class="example-full-width" style="width: 585px;margin-left:50px;">&nbsp;&nbsp;
+       <input matInput placeholder="Enter Mobile No."
+       id="s_mno" required
+       name="s_mno"
+       #smno="ngModel" [(ngModel)]="s_mno" name="s_mno" >
+        </mat-form-field>
+        <div [hidden]="smno.valid || smno.untouched">
+            <div [hidden]="!smno?.errors?.required"></div>
+            <mat-error>Please Enter Mobile No.*</mat-error>
+        </div>
+        <br>
+        Address
+       <mat-form-field class="example-full-width" style="width: 585px;margin-left:65px;">&nbsp;&nbsp;
+       <input matInput placeholder="Enter Address"
+       id="s_address" required
+       name="s_address"
+       #saddress="ngModel" [(ngModel)]="s_address" name="s_address">
+        </mat-form-field>
+        <div [hidden]="saddress.valid || saddress.untouched">
+            <div [hidden]="!saddress?.errors?.required"></div>
+            <mat-error>Please Enter Address*</mat-error>
+        </div>
+      </div>
+    </div>
+</form>

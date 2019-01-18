@@ -15,14 +15,16 @@ export class BilldetailComponent implements OnInit {
   @ViewChild(MatSort) Sort:MatSort;
 id:number;
 arr:billProduct_class[]=[];
-  constructor(private _billdetail:BilldetailService,private _actroute:ActivatedRoute) { }
+  constructor(private _billdetail:BilldetailService,private _route:Router,private _actroute:ActivatedRoute) { }
   dataSource=new MatTableDataSource(this.arr)
   displayedColumns:string[] = ['p_img','p_name','p_price','qty'];
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  oncancel(){
+    this._route.navigate(['menu/totalbill']);
+ }
   ngOnInit() {
     this.id=this._actroute.snapshot.params['bill_id'];
     this._billdetail.getbilldetails(this.id).subscribe(

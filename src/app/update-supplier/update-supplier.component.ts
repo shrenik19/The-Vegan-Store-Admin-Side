@@ -17,11 +17,12 @@ export class UpdateSupplierComponent implements OnInit {
   s_mno:number;
   s_address:string;
   x:string;
+  fk_cat_id:number;
   constructor(private _route:Router,private _service:SupplierService,private _acroute:ActivatedRoute) { }
   onsave(){
-    this._service.updatesupplier(new SUPPLIER_class(this.s_name,this.fk_p_id,this.s_mno,this.s_address,this.s_id)).subscribe(
+    this._service.updatesupplier(new SUPPLIER_class(this.s_name,this.s_mno,this.s_address,this.fk_cat_id,this.s_id)).subscribe(
       (data:SUPPLIER_class[])=>{
-        console.log(data);
+        console.log(this.s_id);
         this._route.navigate(['menu/supplier'])
       }
     );
@@ -37,6 +38,7 @@ export class UpdateSupplierComponent implements OnInit {
         this.s_id=data[0].s_id;
         this.s_name=data[0].s_name;
         this.fk_p_id=data[0].fk_p_id;
+        this.fk_cat_id=data[0].fk_cat_id;
         this.s_mno=data[0].s_mno;
         this.s_address=data[0].s_address;
       }

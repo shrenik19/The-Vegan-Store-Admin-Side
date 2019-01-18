@@ -1,7 +1,11 @@
 .grid-container {
   margin: 20px;
 }
+table{
 
+height:100px;
+width:100%;
+}
 .dashboard-card {
   position: absolute;
   top: 15px;
@@ -18,4 +22,5 @@
 
 .dashboard-card-content {
   text-align: center;
+  height: 600px;
 }

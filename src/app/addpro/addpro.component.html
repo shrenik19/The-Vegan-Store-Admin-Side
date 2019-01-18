@@ -1,113 +1,115 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-9">
-        <!-- style="font-size: 30px;margin-left:10px;margin-top:-40px;" -->
-      <p><b style="font-size: 30px;">Add New Product</b></p>
-    </div>
-    <div class="col-md-3">
-      <button mat-raised-button color="primary" [disabled]="!f.valid" (click)="onaddpro()"><mat-icon>add</mat-icon>  Add New Product</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-    </div>
-  </div>
-</div>
-
-<form class="example-form container" style="font-size: 15px;" (ngSubmit)="addForm(f)" #f="ngForm">
-    <div class="container">
-        <div class="form-group">
-    
-        Name
-        <mat-form-field class="example-full-width" style="width: 585px;margin-left:90px;">&nbsp;&nbsp;
-        <input matInput placeholder="Enter Name" id="user_id" required
-        name="user_id"
-        #userid="ngModel" [(ngModel)]="p_name" name="user_id">
-        </mat-form-field>
-        <div [hidden]="userid.valid || userid.untouched">
-            <div [hidden]="!userid?.errors?.required"></div>
-            <mat-error>Name is required*</mat-error>
+        <div class="row">
+          <div class="col-md-9">
+              <!-- style="font-size: 30px;margin-left:10px;margin-top:-40px;" -->
+            <p><b style="font-size: 30px;">Add New Product</b></p>
+          </div>
+          <div class="col-md-3">
+            <button mat-raised-button color="primary" [disabled]="!f.valid" (click)="onaddpro()"><mat-icon>add</mat-icon>  Add New Product</button>
+          </div>
         </div>
-        <br>
-        price
-        <mat-form-field class="example-full-width" style="width: 585px;margin-left:95px;">&nbsp;&nbsp;&nbsp;&nbsp;
-        <input matInput placeholder="Enter Price" id="p_price" required
-        name="p_price"
-        #pprice="ngModel" [(ngModel)]="p_price" name="p_price">
-        </mat-form-field>
-        <div [hidden]="pprice.valid || pprice.untouched">
-            <div [hidden]="!pprice?.errors?.required"></div>
-            <mat-error>Price is required*</mat-error>
+        <div class="row">
+          <div class="col-md-12">
+          </div>
         </div>
-        <br>
-        Quantity
-       <mat-form-field class="example-full-width" style="width: 585px;margin-left:70px;">&nbsp;&nbsp;
-       <input matInput placeholder="Enter Quantity"
-       id="p_qty" required
-       name="p_qty"
-       #pqty="ngModel" [(ngModel)]="p_qty" name="p_qty">
-        </mat-form-field>
-        <div [hidden]="pqty.valid || pqty.untouched">
-            <div [hidden]="!pqty?.errors?.required"></div>
-            <mat-error>Please Enter Quantity*</mat-error>
-        </div>
-      <br>
-      category Name
-      <mat-form-field class="example-full-width" style="width: 585px;margin-left:26px;">&nbsp;&nbsp;
-      <mat-select placeholder="select Category" [(ngModel)]="fk_cat_id" name="fk_cat_id"
-      id="fk_cat_id" required
-      name="fk_cat_id"
-      #fkcatid="ngModel">
-          <mat-option *ngFor="let item of catarr" [value]="item.cat_id">{{item.cat_name}}</mat-option>
-      </mat-select>
-      </mat-form-field>
-      <div [hidden]="fkcatid.valid || fkcatid.untouched">
-          <div [hidden]="!fkcatid?.errors?.required"></div>
-          <mat-error>Please Select Category*</mat-error>
       </div>
       
-      <br>
-      Manufacturer
-      <mat-form-field class="example-full-width" style="width: 585px;margin-left:38px;" >&nbsp;&nbsp;
-      <input matInput placeholder="Enter Manufacture" [(ngModel)]="p_mfg" name="p_mfg"
-      id="p_mfg" required
-      name="p_mfg"
-      #pmfg="ngModel">
-      </mat-form-field>
-      <div [hidden]="pmfg.valid || pmfg.untouched">
-          <div [hidden]="!pmfg?.errors?.required"></div>
-          <mat-error>Enter Manufacture Name*</mat-error>
-      </div>
-      <br>
-      Upload
-  <!-- <mat-form-field class="example-full-width" style="width: 585px;">&nbsp;&nbsp; -->
-      Image<input  placeholder="Enter Image" type="file" (change)="onChange($event)" name="p_img" style="margin-left: 114px;">
-  <!-- </mat-form-field> -->
-      <br>
-      Buffer Stock
-      <mat-form-field class="example-full-width" style="width: 585px;margin-left:37px;">&nbsp;&nbsp;
-      <input matInput placeholder="Enter Stock" [(ngModel)]="buffer_stock" name="buffer_stock"
-      id="p_buffer" required
-      name="p_buffer"
-      #pbuffer="ngModel">
-      </mat-form-field>
-      <div [hidden]="pbuffer.valid || pbuffer.untouched">
-          <div [hidden]="!pbuffer?.errors?.required"></div>
-          <mat-error>Enter Buffer Stock*</mat-error>
-      </div>
-      <br>
-     Supplier id
-      <mat-form-field class="example-full-width" style="width: 585px;margin-left:50px;">&nbsp;&nbsp;
-      <input matInput placeholder="Enter Supplier_id" [(ngModel)]="fk_s_id" name="fk_s_id"
-      id="p_sid" required
-      name="p_sid"
-      #psid="ngModel">
-      </mat-form-field>
-      <div [hidden]="psid.valid || psid.untouched">
-          <div [hidden]="!psid?.errors?.required"></div>
-          <mat-error>Enter Supplier ID*</mat-error>
-      </div>
-      <br>
-      </div>
-    </div>
-</form>
+      <form class="example-form container" style="font-size: 15px;" (ngSubmit)="addForm(f)" #f="ngForm">
+          <div class="container">
+              <div class="form-group">
+      
+              Name
+              <mat-form-field class="example-full-width" style="width: 585px;margin-left:90px;">&nbsp;&nbsp;
+              <input matInput placeholder="Enter Name" id="user_id" required
+              name="user_id"
+              #userid="ngModel" [(ngModel)]="p_name" name="user_id">
+              </mat-form-field>
+              <div [hidden]="userid.valid || userid.untouched">
+                  <div [hidden]="!userid?.errors?.required"></div>
+                  <mat-error>Name is required*</mat-error>
+              </div>
+              <br>
+              price
+              <mat-form-field class="example-full-width" style="width: 585px;margin-left:95px;">&nbsp;&nbsp;&nbsp;&nbsp;
+              <input matInput placeholder="Enter Price" id="p_price" required
+              name="p_price"
+              #pprice="ngModel" [(ngModel)]="p_price" name="p_price">
+              </mat-form-field>
+              <div [hidden]="pprice.valid || pprice.untouched">
+                  <div [hidden]="!pprice?.errors?.required"></div>
+                  <mat-error>Price is required*</mat-error>
+              </div>
+              <br>
+              Quantity
+             <mat-form-field class="example-full-width" style="width: 585px;margin-left:70px;">&nbsp;&nbsp;
+             <input matInput placeholder="Enter Quantity"
+             id="p_qty" required
+             name="p_qty"
+             #pqty="ngModel" [(ngModel)]="p_qty" name="p_qty">
+              </mat-form-field>
+              <div [hidden]="pqty.valid || pqty.untouched">
+                  <div [hidden]="!pqty?.errors?.required"></div>
+                  <mat-error>Please Enter Quantity*</mat-error>
+              </div>
+            <br>
+            category Name
+            <mat-form-field class="example-full-width" style="width: 585px;margin-left:26px;">&nbsp;&nbsp;
+            <mat-select placeholder="select Category" [(ngModel)]="fk_cat_id" name="fk_cat_id"
+            id="fk_cat_id" required
+            name="fk_cat_id"
+            #fkcatid="ngModel">
+                <mat-option *ngFor="let item of catarr" [value]="item.cat_id">{{item.cat_name}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            <div [hidden]="fkcatid.valid || fkcatid.untouched">
+                <div [hidden]="!fkcatid?.errors?.required"></div>
+                <mat-error>Please Select Category*</mat-error>
+            </div>
+      
+            <br>
+            Manufacturer
+            <mat-form-field class="example-full-width" style="width: 585px;margin-left:38px;" >&nbsp;&nbsp;
+            <input matInput placeholder="Enter Manufacture" [(ngModel)]="p_mfg" name="p_mfg"
+            id="p_mfg" required
+            name="p_mfg"
+            #pmfg="ngModel">
+            </mat-form-field>
+            <div [hidden]="pmfg.valid || pmfg.untouched">
+                <div [hidden]="!pmfg?.errors?.required"></div>
+                <mat-error>Enter Manufacture Name*</mat-error>
+            </div>
+            <br>
+            Upload
+        <!-- <mat-form-field class="example-full-width" style="width: 585px;">&nbsp;&nbsp; -->
+            Image<input  placeholder="Enter Image" type="file" (change)="onChange($event)" name="p_img" style="margin-left: 114px;">
+        <!-- </mat-form-field> -->
+            <br>
+            Buffer Stock
+            <mat-form-field class="example-full-width" style="width: 585px;margin-left:37px;">&nbsp;&nbsp;
+            <input matInput placeholder="Enter Stock" [(ngModel)]="buffer_stock" name="buffer_stock"
+            id="p_buffer" required
+            name="p_buffer"
+            #pbuffer="ngModel">
+            </mat-form-field>
+            <div [hidden]="pbuffer.valid || pbuffer.untouched">
+                <div [hidden]="!pbuffer?.errors?.required"></div>
+                <mat-error>Enter Buffer Stock*</mat-error>
+            </div>
+            <br>
+           Supplier id
+            <mat-form-field class="example-full-width" style="width: 585px;margin-left:50px;">&nbsp;&nbsp;
+            <input matInput placeholder="Enter Supplier_id" [(ngModel)]="fk_s_id" name="fk_s_id"
+            id="p_sid" required
+            name="p_sid"
+            #psid="ngModel">
+            </mat-form-field>
+            <div [hidden]="psid.valid || psid.untouched">
+                <div [hidden]="!psid?.errors?.required"></div>
+                <mat-error>Enter Supplier ID*</mat-error>
+            </div>
+            <br>
+            <button mat-raised-button class="btn" style="margin-left: 7px;" color="warn" (click)="oncancel()">Cancel</button>
+            </div>
+          </div>
+      </form>
+      

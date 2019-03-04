@@ -21,13 +21,16 @@ export class OrderComponent implements OnInit {
   @ViewChild(MatSort) Sort:MatSort;
   o_price:number;
   o_date:Date;
-  fk_email_id:number;
+  fk_email_id:string;
+  status1:string="done";
+  status:string;
   bill_amt:number;
   billarr:bill_class[]=[];
   orderarr:order_class[]=[];
   billdetailarr:billdetail_class[]=[];
   bill_details_arr:billdetail_class[]=[];
   sub_o_id:number;
+  o_id:number;
   fk_bill_id:number[]=[];
   fk_p_id:number;
   product_arr:product_class[]=[];
@@ -39,7 +42,7 @@ export class OrderComponent implements OnInit {
   delarr:order_class[]=[];
   constructor(private _bill:TotalbillService,private _billdetail:BilldetailService,private _orderdetail:OrderdetailService,private _order:OrderService,private _route:Router) { }
   dataSource=new MatTableDataSource(this.orderarr)
-  displayedColumns:string[] = ['Action','fk_email_id','o_price','o_date','action'];
+  displayedColumns:string[] = ['Action','fk_email_id','o_price','o_date','status','action'];
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -59,7 +62,29 @@ export class OrderComponent implements OnInit {
       }  
     );
 }
-
+onupdate(item)
+{
+  //this.x=this._acroute.snapshot.params['s_id'];
+  console.log("hello")
+  this._order.getallorderbyid(item.o_id).subscribe(
+    (data:order_class)=>{
+      console.log(data)
+      this.o_id=data[0].o_id;
+      this.o_price=data[0].o_price;
+      this.o_date=data[0].o_date;
+      this.fk_email_id=data[0].fk_email_id;
+      this.status1=data[0].status1;
+    }
+   
+  );
+  this._order.updateorder(item).subscribe(
+    (data:any)=>{
+      this.orderarr.push(new order_class(this.o_price,this.o_date,this.fk_email_id,this.status1));
+      console.log(data);
+    }
+  );
+  this.ngOnInit();
+}
   oncheck(item){
     this.bill_details_arr.splice(0,this.bill_details_arr.length);
     this.bill_amt=this.o_price;
@@ -89,7 +114,8 @@ export class OrderComponent implements OnInit {
             }
           );
           alert("Successfully Added");
-          this.ondelete(item);
+          //this.ondelete(item);
+          this.onupdate(item);
         }
     );
   }
@@ -131,5 +157,4 @@ export class OrderComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }

@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   constructor(private _actroute:ActivatedRoute,private _route:Router,private _proser:ProductService,private _catser:CategoryService) { }
 
   dataSource=new MatTableDataSource(this.proarr)
-  displayedColumns:string[] = ['Action','p_img','p_name','p_price','p_qty','Edit'];
+  displayedColumns:string[] = ['Action','p_img','p_name','p_price','p_qty','buffer_stock','Edit'];
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

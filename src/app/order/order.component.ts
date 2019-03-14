@@ -10,6 +10,8 @@ import {MatTableDataSource,MatPaginator,MatSort} from '@angular/material';
 import { billdetail_class } from '../Classes/billdetail';
 import { BilldetailService } from '../services/billdetail.service';
 import { product_class } from '../Classes/product';
+import { LoginService } from '../services/login.service';
+
 
 @Component({
   selector: 'app-order',
@@ -25,6 +27,7 @@ export class OrderComponent implements OnInit {
   status1:string="done";
   status:string;
   bill_amt:number;
+  fk_address:string;
   billarr:bill_class[]=[];
   orderarr:order_class[]=[];
   billdetailarr:billdetail_class[]=[];
@@ -40,7 +43,8 @@ export class OrderComponent implements OnInit {
   fk_o_id:number[]=[];
   insertId:number;
   delarr:order_class[]=[];
-  constructor(private _bill:TotalbillService,private _billdetail:BilldetailService,private _orderdetail:OrderdetailService,private _order:OrderService,private _route:Router) { }
+  user_id:string;
+  constructor(private _bill:TotalbillService,private _billdetail:BilldetailService,private _orderdetail:OrderdetailService,private _order:OrderService,private _route:Router,private _loginser:LoginService) { }
   dataSource=new MatTableDataSource(this.orderarr)
   displayedColumns:string[] = ['Action','fk_email_id','o_price','o_date','status','action'];
 
@@ -73,22 +77,35 @@ onupdate(item)
       this.o_price=data[0].o_price;
       this.o_date=data[0].o_date;
       this.fk_email_id=data[0].fk_email_id;
+      this.fk_address=data[0].fk_address;
       this.status1=data[0].status1;
     }
    
   );
   this._order.updateorder(item).subscribe(
     (data:any)=>{
-      this.orderarr.push(new order_class(this.o_price,this.o_date,this.fk_email_id,this.status1));
+      this.orderarr.push(new order_class(this.o_price,this.o_date,this.fk_email_id,this.fk_address,this.status1));
       console.log(data);
     }
   );
   this.ngOnInit();
 }
   oncheck(item){
+    this.ngOnInit();
+    this.onupdate(item);
+    this._loginser.getAllUserByEmail_id(item.fk_email_id).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.fk_address=data[0].u_address;
+        
+      }
+    );
+
+
+
     this.bill_details_arr.splice(0,this.bill_details_arr.length);
     this.bill_amt=this.o_price;
-    this._bill.addbill(new bill_class(item.o_price,item.fk_email_id,item.Date)).subscribe(
+    this._bill.addbill(new bill_class(item.o_price,item.fk_email_id,item.fk_address,item.Date)).subscribe(
         (data:any)=>{
           this.insertId=data.insertId;
           console.log(this.insertId)
@@ -101,7 +118,8 @@ onupdate(item)
                 console.log(data)
                 this.fk_p_id=data[this.i].fk_p_id;
                 this.price=data[this.i].price;
-                this.qty=data[this.i].qty;
+                this.qty=data[this.i].fk_p_qty;
+                this.qty=this.qty;
                 console.log(this.insertId,this.fk_p_id,this.price,this.qty)
                 this.bill_details_arr.push(new billdetail_class(this.insertId,this.fk_p_id,this.price,this.qty))
                   console.log(this.insertId,this.fk_p_id,this.qty,this.price);
@@ -115,9 +133,11 @@ onupdate(item)
           );
           alert("Successfully Added");
           //this.ondelete(item);
-          this.onupdate(item);
+          
+          this.ngOnInit();
         }
     );
+    
   }
   checkchange(item:order_class){
     if(this.delarr.find(x=>x==item)){

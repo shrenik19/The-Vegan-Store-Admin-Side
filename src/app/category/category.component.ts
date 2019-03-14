@@ -13,14 +13,14 @@ import {MatTableDataSource,MatPaginator,MatSort} from '@angular/material';
 export class CategoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) Sort:MatSort;
-  
+
   cat_name:string;
   cat_id:number;
   catarr:category_class[]=[];
   delarr:category_class[]=[];
   i:number=0;
   flag:boolean=false;
-  
+
   constructor(private _actroute:ActivatedRoute,private _route:Router,private _catser:CategoryService) { }
   dataSource=new MatTableDataSource(this.catarr)
   displayedColumns:string[] = ['Action','cat_name','Edit'];
@@ -28,6 +28,8 @@ export class CategoryComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+
 
 onupdate(item){
   this._route.navigate(['menu/update-cat',item.cat_id]);
@@ -38,9 +40,9 @@ ondeletecat(item:category_class){
       this.catarr.splice(this.catarr.indexOf(item),1)
       console.log(this.catarr)
       this.ngOnInit();
-    }  
+    }
   );
-  
+
 }
   checkchange(item:category_class){
     if(this.delarr.find(x=>x==item)){
@@ -51,7 +53,7 @@ ondeletecat(item:category_class){
       this.delarr.push(item)
     }
     console.log(this.delarr)
-  } 
+  }
 
   ondelete(){
     this._catser.deletecat(this.delarr).subscribe(
@@ -78,16 +80,18 @@ ondeletecat(item:category_class){
     this._catser.getAllcat().subscribe(
       (data:any)=>{
         this.catarr=data;
-        this.dataSource= new MatTableDataSource(this.catarr);    
+        this.dataSource= new MatTableDataSource(this.catarr);
          this.dataSource.paginator = this.paginator;
         this.dataSource.sort=this.Sort;
       }
-  
+
     );
-    
+
      if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
      }
+
+
   }
 
   onaddcat(){
@@ -99,11 +103,11 @@ ondeletecat(item:category_class){
       });
       this.flag=false;
   }
-  
+
   oncancel(){
     this.flag=false;
   }
-  
 
-  
+
+
 }

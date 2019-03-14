@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   constructor(private _actroute:ActivatedRoute,private _route:Router,private _proser:ProductService,private _catser:CategoryService) { }
 
   dataSource=new MatTableDataSource(this.proarr)
-  displayedColumns:string[] = ['Action','p_img','p_name','p_price','p_qty','Edit'];
+  displayedColumns:string[] = ['Action','p_img','p_name','p_price','p_qty','buffer_stock','Edit'];
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -46,7 +46,7 @@ onAll(){
   this._proser.getAllproduct().subscribe(
     (data:any)=>{
       this.proarr=data;
-      this.dataSource= new MatTableDataSource(this.proarr);    
+      this.dataSource= new MatTableDataSource(this.proarr);
        this.dataSource.paginator = this.paginator;
       this.dataSource.sort=this.Sort;
     }
@@ -75,7 +75,7 @@ oncat(cat_name){
       this.delarr.push(item)
     }
     console.log(this.delarr)
-  } 
+  }
 
   ondelete(){
     this._proser.deleteproduct(this.delarr).subscribe(
@@ -96,9 +96,9 @@ oncat(cat_name){
         this.proarr.splice(this.proarr.indexOf(item),1)
         console.log(this.proarr)
         this.ngOnInit();
-      }  
+      }
     );
-    
+
   }
   onAddpro(){
     this._route.navigate(['menu/addpro']);
@@ -109,7 +109,7 @@ oncat(cat_name){
     this._proser.getAllproduct().subscribe(
       (data:any)=>{
         this.proarr=data;
-        this.dataSource= new MatTableDataSource(this.proarr);    
+        this.dataSource= new MatTableDataSource(this.proarr);
          this.dataSource.paginator = this.paginator;
         this.dataSource.sort=this.Sort;
       }

@@ -24,6 +24,9 @@ onupdate(item:info_class){
   this._route.navigate(['menu/update-profile',localStorage.getItem('email_id')]);
 }
 
+oncancel(){
+  this._route.navigate(['menu/dashboard']);
+}
 onpswd(){
   this._route.navigate(['menu/update-password',localStorage.getItem('email_id')]);
 }

@@ -31,4 +31,10 @@ export class OrderService {
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.singleorderdelete+item.o_id,body,{headers:head1})
 }
+updateorder(item:order_class){
+  let body=JSON.stringify(item)
+  let head1=new HttpHeaders().set('Content-Type','application/json');
+  console.log(item.o_id)
+  return this._http.put(this.order+item.o_id,body,{headers:head1})
+}
 }

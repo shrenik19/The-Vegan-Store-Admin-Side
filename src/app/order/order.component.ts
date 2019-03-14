@@ -21,8 +21,9 @@ export class OrderComponent implements OnInit {
   @ViewChild(MatSort) Sort:MatSort;
   o_price:number;
   o_date:Date;
-  fk_email_id:number;
+  fk_email_id:string;
   bill_amt:number;
+  status:string="done";
   billarr:bill_class[]=[];
   orderarr:order_class[]=[];
   billdetailarr:billdetail_class[]=[];
@@ -39,7 +40,7 @@ export class OrderComponent implements OnInit {
   delarr:order_class[]=[];
   constructor(private _bill:TotalbillService,private _billdetail:BilldetailService,private _orderdetail:OrderdetailService,private _order:OrderService,private _route:Router) { }
   dataSource=new MatTableDataSource(this.orderarr)
-  displayedColumns:string[] = ['Action','fk_email_id','o_price','o_date','action'];
+  displayedColumns:string[] = ['Action','fk_email_id','o_price','o_date','status','action'];
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -56,7 +57,7 @@ export class OrderComponent implements OnInit {
         this.orderarr.splice(this.orderarr.indexOf(item),1)
         console.log(this.orderarr)
         this.ngOnInit();
-      }  
+      }
     );
 }
 
@@ -89,7 +90,14 @@ export class OrderComponent implements OnInit {
             }
           );
           alert("Successfully Added");
-          this.ondelete(item);
+          //this.ondelete(item);
+         /* this.fk_email_id=localStorage.getItem('email_id');
+          this._order.updateorder(item).subscribe(
+            (data:any)=>{
+              this.orderarr.push(new order_class(this.o_price,this.o_date,this.fk_email_id,this.status));
+            }
+          )*/
+
         }
     );
   }
@@ -122,7 +130,7 @@ export class OrderComponent implements OnInit {
       (data:any)=>{
         console.log(data);
         this.orderarr=data;
-        this.dataSource= new MatTableDataSource(this.orderarr);    
+        this.dataSource= new MatTableDataSource(this.orderarr);
         this.dataSource.paginator = this.paginator;
        this.dataSource.sort=this.Sort;
       }

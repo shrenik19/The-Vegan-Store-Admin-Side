@@ -13,11 +13,11 @@ export class ProductService {
   private bufferproduct:string='http://Localhost:3000/reminder/';
   private addpro:string='http://Localhost:3000/addpro/';
   private deleteallpro:string='http://Localhost:3000/deleteandgetallpro/';
-  
+
   constructor(private _http:HttpClient) { }
-  getAllproduct(){
-    return this._http.get(this.product);
-  }
+    getAllproduct(){
+      return this._http.get(this.product);
+    }
   getallproBycat(cat_name:string){
     return this._http.get(this.deleteallpro+cat_name)
   }
@@ -32,7 +32,7 @@ export class ProductService {
     return this._http.post(this.product+item.p_id,body,{headers:head1})
 }
   addproduct(item:FormData){
-    
+
     return this._http.post(this.addpro,item)
   }
   getAllproById(p_id)

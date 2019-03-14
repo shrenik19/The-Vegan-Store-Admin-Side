@@ -10,6 +10,7 @@ import { HttpModule,Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { routing } from './app.routing';
 import { MatInputModule,MatButtonModule,MatIconModule,MatTableModule,MatFormFieldModule,MatFormFieldControl,MatPaginatorModule,MatProgressSpinnerModule,MatCheckboxModule,MatSortModule,MatCardModule, MatToolbarModule, MatSidenavModule, MatListModule,MatSelectModule,MatExpansionPanelDescription,MatExpansionModule,MatExpansionPanel,MatAccordion,MatExpansionPanelTitle,MatGridListModule,MatMenuModule} from '@angular/material';
+import { ChartsModule } from 'ng2-charts';
 
 import { ProductComponent } from './product/product.component';
 import { UpdateCatComponent } from './update-cat/update-cat.component';
@@ -32,6 +33,7 @@ import { SupplierComponent } from './supplier/supplier.component';
 import { UpdateSupplierComponent } from './update-supplier/update-supplier.component';
 import { ProductreminderComponent } from './productreminder/productreminder.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
+import { ChartpageComponent } from './chartpage/chartpage.component';
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import { AddsupplierComponent } from './addsupplier/addsupplier.component';
     SupplierComponent,
     UpdateSupplierComponent,
     ProductreminderComponent,
-    AddsupplierComponent
+    AddsupplierComponent,
+    ChartpageComponent
 
   ],
   imports: [
@@ -84,7 +87,8 @@ import { AddsupplierComponent } from './addsupplier/addsupplier.component';
     MatExpansionModule,
     MatExpansionModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

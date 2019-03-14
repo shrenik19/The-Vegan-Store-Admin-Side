@@ -8,6 +8,7 @@ import { order_class } from '../Classes/order';
 })
 export class OrderService {
   private order:string="http://Localhost:3000/order/";
+  private updateorderurl:string="http://Localhost:3000/updateorder/";
   private deleteorder:string="http://Localhost:3000/deleteorder/";
   private topfive:string="http://Localhost:3000/topfive/";
   private singleorderdelete:string="http://Localhost:3000/singleorderdelete/";
@@ -15,6 +16,10 @@ export class OrderService {
   getallorder()
   {
     return this._http.get(this.order);
+  }
+  getallorderbyid(o_id)
+  {
+    return this._http.get(this.updateorderurl+o_id);
   }
   topFive()
   {
@@ -30,11 +35,13 @@ export class OrderService {
     let body=JSON.stringify(item);
     let head1=new HttpHeaders().set('Content-Type','application/json');
     return this._http.post(this.singleorderdelete+item.o_id,body,{headers:head1})
-}
-updateorder(item:order_class){
-  let body=JSON.stringify(item)
-  let head1=new HttpHeaders().set('Content-Type','application/json');
-  console.log(item.o_id)
-  return this._http.put(this.order+item.o_id,body,{headers:head1})
-}
+
+  }
+  updateorder(item:order_class){
+    let body=JSON.stringify(item)
+    let head1=new HttpHeaders().set('Content-Type','application/json');
+    console.log(item.o_id)
+    return this._http.put(this.order+item.o_id,body,{headers:head1})
+  }
+
 }

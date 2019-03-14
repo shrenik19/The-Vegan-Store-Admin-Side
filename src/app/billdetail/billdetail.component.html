@@ -130,8 +130,9 @@
 
   </div>
   </div>
-  </div> -->
 
+
+ -->
 
 
 
@@ -159,13 +160,15 @@
       </ng-container>
 
       <ng-container matColumnDef="p_price">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price(Per Kg.)  </th>
-        <td mat-cell *matCellDef="let element"> {{element.p_price | currency:'INR':true}} </td>
+
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price  </th>
+        <td mat-cell *matCellDef="let element"> {{element.p_price | currency:'INR':true}}  </td>
       </ng-container>
 
       <ng-container matColumnDef="qty">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity(Per Kg.)  </th>
-        <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.qty}} KG. </td>
+
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -173,4 +176,8 @@
     </table>
     <mat-paginator [pageSizeOptions]="[1,2,5]"></mat-paginator>
 
+<<<<<<< HEAD
     <button mat-raised-button color="warn" style="margin-left: 100px;" (click)="oncancel()">Back</button>
+=======
+    <button mat-raised-button color="warn" style="margin-left: 100px;" (click)="oncancel()">Back</button>
+>>>>>>> 6d1ea52edf6cac5474433a0b9fd8f6c4da6485a6

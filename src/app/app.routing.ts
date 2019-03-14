@@ -18,6 +18,9 @@ import { SupplierComponent } from './supplier/supplier.component'
 import { UpdateSupplierComponent } from './update-supplier/update-supplier.component';
 import { ProductreminderComponent } from './productreminder/productreminder.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
+import { ChartpageComponent } from './chartpage/chartpage.component';
+
+
 const arr:Routes=[
                 {path:'',component:LoginComponent},
                 {path:'menu',component:MenuComponent,children:[
@@ -37,6 +40,7 @@ const arr:Routes=[
                     {path:'supplier',component:SupplierComponent},
                     {path:'productreminder',component:ProductreminderComponent},
                     {path:'update-supplier/:s_id',component:UpdateSupplierComponent},
+                    {path:'chartpage',component:ChartpageComponent},
                 ]},
                 {path:'forget',component:ForgetpasswordComponent},     
 ];    

@@ -32,6 +32,8 @@ onpswd(){
     this.email_id=localStorage.getItem('email_id');
     this._service.getAllUserByEmail_id(this.email_id).subscribe(
       (data:info_class[])=>{
+        this.infoarr=data;
+        console.log(this.infoarr,"infoarr");
         this.email_id=data[0].email_id;
         this.u_name=data[0].u_name;
         this.password=data[0].password;

@@ -38,6 +38,7 @@ export class UpdatePasswordComponent implements OnInit {
     this.x=this._actroute.snapshot.params['email_id'];
     this._update.getAllUserByEmail_id(this.x).subscribe(
       (data:changepwd_class[])=>{
+        console.log(data);
         this.email_id=data[0].email_id;
         this.password=data[0].password;
       }

@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <img src="http://localhost:3000/images/product/profile.jpg" style="height: 113px;border-radius: 80px;top:40px;">
-      <button type="submit" class="btn" mat-raised-button color="primary" (click)="onupdate()" style="margin-left: 91px;">Update Profile</button>
-      <button mat-raised-button class="btn" style="margin-left: 7px;" color="warn" (click)="onpswd()">Update Password</button>
+
+      <!-- <button type="submit" class="btn" mat-raised-button color="primary" (click)="onupdate()" style="margin-left: 91px;">Update Profile</button>
+      <button mat-raised-button class="btn" style="margin-left: 7px;" color="warn" (click)="onpswd()">Update Password</button> -->
     </div>
   </div>
   <div class="row">
@@ -14,7 +14,7 @@
 
 
 
-<form class="example-form container" style="font-size: 15px;">
+<!-- <form class="example-form container" style="font-size: 15px;">
   <b style="margin-left: -10px;">Email Id</b>
   <mat-form-field class="example-full-width" style="width: 585px;margin-left:46px;">
       <input disabled matInput style="margin-left: 6px;" [(ngModel)]="email_id" name="email_id">
@@ -44,8 +44,23 @@
   <mat-form-field class="example-full-width" style="width: 585px;margin-left:19px;">
     <input disabled matInput style="margin-left:6px;" [(ngModel)]="u_mno" name="u_mno">
   </mat-form-field>
-  <br>
-  <button mat-raised-button color="warn" style="margin-left: 100px;" (click)="oncancel()">Back</button>
+
+  <br> -->
+<form>
+
+  <div class="card" *ngFor="let item of infoarr">
+    <img src="http://localhost:3000/images/product/profilelogo.jpg" style="height:40%;width:40%;">
+    <h1>{{item.u_name}}</h1>
+    <p class="title">{{item.email_id}}</p>
+    <p class="title">{{item.u_address}}</p>
+    <p class="title">{{item.u_city}}</p>
+    <p class="title">{{item.u_mno}}</p>
+
+    <p><button (click)="onpswd()">Edit Password</button></p>
+    <p><button (click)="onupdate()">Edit Profile</button></p>
+  </div>
+
+
 </form>
 
 

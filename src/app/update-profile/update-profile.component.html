@@ -13,7 +13,7 @@
 
 
 
-<form class="example-form container" style="font-size: 15px;">
+<!-- <form class="example-form container" style="font-size: 15px;">
   <b style="margin-left: -10px;">Email Id</b>
   <mat-form-field class="example-full-width" style="width: 585px;margin-left:46px;">
       <input matInput style="margin-left: 6px;" [(ngModel)]="email_id" name="email_id">
@@ -46,8 +46,54 @@
   <br>
   <button type="submit" class="btn" mat-raised-button color="primary" (click)="onsave()" style="margin-left: 91px;">Update Profile</button>
   <button mat-raised-button class="btn" style="margin-left: 7px;" color="warn" (click)="oncancel()">Cancel</button>
-</form>
+</form> -->
 
+
+
+
+<form (ngSubmit)="addForm(f)" #f="ngForm">
+    <br>
+    <br>
+    <br>
+    <div class="card">
+      <h1>Update Your Profile</h1>
+      <br>
+      <b style="margin-left: -10px;">Email Id</b>
+      <mat-form-field class="example-full-width" style="width: 585px;margin-left:46px;">
+          <input matInput style="margin-left: 6px;" [(ngModel)]="email_id" name="email_id">
+        </mat-form-field>
+      <br>
+      <b style="margin-left: -10px;">Name</b>
+    <mat-form-field class="example-full-width" style="width: 585px;margin-left:58px;">
+        <input matInput style="margin-left: 6px;" [(ngModel)]="u_name" name="u_name">
+      </mat-form-field>
+    <br>
+    <b style="margin-left: -10px;">Gender</b>
+      <mat-form-field class="example-full-width" style="width: 585px;margin-left:50px;">
+        <input matInput style="margin-left: 6px;" [(ngModel)]="u_gender" name="u_gender">
+      </mat-form-field>
+      <br>
+      <b style="margin-left: -10px;">Address</b>
+      <mat-form-field class="example-full-width" style="width: 585px;margin-left:43px;">
+        <input matInput style="margin-left:6px;" [(ngModel)]="u_address" name="u_address">
+      </mat-form-field>
+      <br>
+      <b style="margin-left: -10px;">City</b>
+      <mat-form-field class="example-full-width" style="width: 585px;margin-left:70px;">
+        <input matInput matInput style="margin-left:6px;" [(ngModel)]="u_city" name="u_city">
+      </mat-form-field>
+      <br>
+      <b style="margin-left: -10px;">Mobile No.</b>
+      <mat-form-field class="example-full-width" style="width: 585px;margin-left:24px;">
+        <input matInput style="margin-left:6px;" [(ngModel)]="u_mno" name="u_mno">
+      </mat-form-field>
+
+
+
+      <p><button [disabled]="!f.valid" (click)="onsave()">Done</button></p>
+      <p><button (click)="oncancel()">Cancel</button></p>
+    </div>
+  </form>
 
 
 

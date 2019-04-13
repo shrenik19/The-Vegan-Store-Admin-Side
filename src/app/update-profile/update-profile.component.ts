@@ -22,7 +22,7 @@ export class UpdateProfileComponent implements OnInit {
   onsave(){
     this._service.updateprofile(new info_class(this.email_id,this.password,this.u_name,this.u_gender,this.u_address,this.u_city,this.u_mno)).subscribe(
       (data:any)=>{
-        this._route.navigate(['menu/'])
+        this._route.navigate(['menu/profile'])
       }
     );
   }

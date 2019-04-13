@@ -40,6 +40,10 @@ export class AddsupplierComponent implements OnInit {
     );
   }
 
+  oncancel(){
+    this._route.navigate(['menu/supplier'])
+  }
+
   onaddsup(item){
     this._supplierser.addsupplier(new SUPPLIER_class(this.s_name,this.s_mno,this.s_address,this.fk_cat_id,this.s_id,this.fk_p_id)).subscribe(
       (data:SUPPLIER_class)=>{
@@ -48,7 +52,7 @@ export class AddsupplierComponent implements OnInit {
         this._route.navigate(['menu/supplier']);
       }
     )
-    
+
   }
 
   ngOnInit() {
@@ -57,7 +61,7 @@ export class AddsupplierComponent implements OnInit {
         this.catarr=data;
       }
     );
-    
+
   }
 
 }

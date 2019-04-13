@@ -1,4 +1,4 @@
-
+<!--
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url(http://localhost:3000/images/product/background.jpg);height:100%;width:100%;background-repeat:no-repeat;background-size:cover ">
 
@@ -56,4 +56,63 @@
 			</div>
 		</div>
 	</div>
+ -->
+
+
+ <div class="limiter">
+  <div class="container-login100" style="background-image: url(http://localhost:3000/images/product/back8.jpg);height:100%;width:100%;background-repeat:no-repeat;background-size:cover;opacity:0%;">
+    <div class="wrap-login100 p-t-85 p-b-20">
+      <form class="login100-form validate-form"  #f="ngForm" style="height: 0px;">
+        <span class="login100-form-title p-b-70" style="margin-top: -257px;">
+          <br>
+        </span>
+        <span class="login100-form-avatar">
+          <img src="http://localhost:3000/images/product/logo.jpg" alt="AVATAR">
+        </span>
+          <div class="example-container">
+           <mat-form-field style="width: 300px;color:#0A0906">
+           <input matInput #user_id1="ngModel"
+           [(ngModel)]="email_id"
+           name="email_id"
+            placeholder="  Enter Email_id"
+            required  style="width: 300px;">
+            <mat-error> Email is required</mat-error>
+           </mat-form-field>
+         </div>
+          <br>
+          <div class="example-container">
+           <mat-form-field hintLabel="Max 8 characters" style="width: 300px;">
+             <input matInput #password1="ngModel" style="color:#0A0906;"
+             [(ngModel)]="password"
+             required
+             maxlength="10"
+             name="password" style="border-radius: 20px;width: 300px;height: 40px;margin-top: -61px;"
+            placeholder="  Enter Password" [type]="flag ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="flag=!flag">
+               {{flag?'visibility':'visibility_off'}}
+             </mat-icon>
+             <mat-error>This Field is required</mat-error>
+             <mat-hint align="end">{{password1.value?.length || 0}}/10</mat-hint>
+           </mat-form-field>
+           </div>
+        <div class="container-login100-form-btn">
+          <button [disabled]="!f.valid" (click)="onLogin()" class="login100-form-btn" style="margin-top: 40px;">
+            Login
+          </button>
+        </div>
+
+        <ul class="login-more p-t-190">
+          <li class="m-b-8">
+            <span class="txt1">
+              Forgot
+            </span>
+            <a  class="txt2" (click)="onforget()">
+              Username / Password?
+            </a>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
 

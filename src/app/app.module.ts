@@ -34,6 +34,11 @@ import { UpdateSupplierComponent } from './update-supplier/update-supplier.compo
 import { ProductreminderComponent } from './productreminder/productreminder.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 import { ChartpageComponent } from './chartpage/chartpage.component';
+import { CharttableComponent } from './charttable/charttable.component';
+import { ChartpieComponent } from './chartpie/chartpie.component';
+import { ChartdouComponent } from './chartdou/chartdou.component';
+import { PiechartComponent } from './piechart/piechart.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 @NgModule({
@@ -60,7 +65,12 @@ import { ChartpageComponent } from './chartpage/chartpage.component';
     UpdateSupplierComponent,
     ProductreminderComponent,
     AddsupplierComponent,
-    ChartpageComponent
+    ChartpageComponent,
+    CharttableComponent,
+    ChartpieComponent,
+    ChartdouComponent,
+    PiechartComponent,
+    NotfoundComponent
 
   ],
   imports: [

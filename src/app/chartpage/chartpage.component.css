@@ -1,0 +1,38 @@
+table
+{
+    width:100%;
+}
+.btn
+{
+    padding:10px;
+    height:55px;
+    width:320px;
+    font-size:20px;
+    box-shadow: 10px 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.btn:hover{
+    box-shadow: 0 8px 16px 0 rgba(19, 145, 204, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+p{
+    font-family: "Times New Roman", Times, serif;
+    font-size:30px;  
+    margin-top: 1px;
+    margin-left: 440px;
+}
+
+.container-login100 {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #fff;
+  }
+  

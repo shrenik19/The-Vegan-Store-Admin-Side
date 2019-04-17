@@ -1,0 +1,24 @@
+table{
+    width:80%;
+    height:30%;
+    margin-left:120px;
+    margin-top: 1px;
+    box-shadow: 10px 10px;
+    box-shadow: 0 8px 16px 0 rgba(19, 145, 204, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+p{
+    font-family: "Times New Roman", Times, serif;
+    font-size:30px;  
+    margin-top: 1px;
+    margin-left: 440px;
+}
+th,tr,td
+{
+    font-size:20px;
+}
+tr:nth-child(1) {background-color: #B5F5AC;}
+tr:nth-child(2) {background-color: #F3E5A6;}
+tr:nth-child(3) {background-color: #F1C2B0;}
+th:nth-child(1) {background-color: #FFFFFF;}
+th:nth-child(2) {background-color: #FFFFFF;}
+th:nth-child(3) {background-color: #FFFFFF;}

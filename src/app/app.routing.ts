@@ -19,17 +19,21 @@ import { UpdateSupplierComponent } from './update-supplier/update-supplier.compo
 import { ProductreminderComponent } from './productreminder/productreminder.component';
 import { AddsupplierComponent } from './addsupplier/addsupplier.component';
 import { ChartpageComponent } from './chartpage/chartpage.component';
-
-
+import { CharttableComponent } from './charttable/charttable.component';
+import { ChartpieComponent } from './chartpie/chartpie.component';
+import { ChartdouComponent } from './chartdou/chartdou.component';
+import { AdminAuthguardService } from './services/admin-authguard.service';
+import { NotfoundComponent } from './notfound/notfound.component';
 const arr:Routes=[
+                {path:'not-found',component:NotfoundComponent},
                 {path:'',component:LoginComponent},
                 {path:'menu',component:MenuComponent,children:[
-                    {path:'dashboard',component:DashboardComponent},
-                    {path:'category',component:CategoryComponent},
-                    {path:'product',component:ProductComponent},
-                    {path:'totalbill',component:TotalbillComponent},
-                    {path:'totalorder',component:OrderComponent},
-                    {path:'update-cat/:cat_id',component:UpdateCatComponent},
+                    {path:'dashboard',component:DashboardComponent,canActivate:[AdminAuthguardService]},
+                    {path:'category',component:CategoryComponent,canActivate:[AdminAuthguardService]},
+                    {path:'product',component:ProductComponent,canActivate:[AdminAuthguardService]},
+                    {path:'totalbill',component:TotalbillComponent,canActivate:[AdminAuthguardService]},
+                    {path:'totalorder',component:OrderComponent,canActivate:[AdminAuthguardService]},
+                    {path:'update-cat/:cat_id',component:UpdateCatComponent,canActivate:[AdminAuthguardService]},
                     {path:'update-pro/:p_id',component:UpdateProComponent},
                     {path:'update-profile/:email_id',component:UpdateProfileComponent},
                     {path:'update-password/:email_id',component:UpdatePasswordComponent},
@@ -41,7 +45,11 @@ const arr:Routes=[
                     {path:'productreminder',component:ProductreminderComponent},
                     {path:'update-supplier/:s_id',component:UpdateSupplierComponent},
                     {path:'chartpage',component:ChartpageComponent},
+                    {path:'charttable',component:CharttableComponent},
+                    {path:'chartpie',component:ChartpieComponent},
+                    {path:'chartdou',component:ChartdouComponent},
                 ]},
                 {path:'forget',component:ForgetpasswordComponent},     
+                {path:'**',redirectTo:'/not-found',pathMatch:'full'}
 ];    
 export const routing=RouterModule.forRoot(arr);

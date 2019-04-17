@@ -19,7 +19,7 @@ constructor(private breakpointObserver: BreakpointObserver,private _route:Router
   onlogout()
   {
     this._route.navigate([''])
-    localStorage.setItem(' '," ");
+    localStorage.setItem('email_id',"");
   }
 onicon()
  {

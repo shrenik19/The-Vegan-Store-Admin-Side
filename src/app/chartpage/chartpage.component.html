@@ -1,23 +1,39 @@
-<div>
-  <div style="display: block">
-      <canvas baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [chartType]="barChartType"></canvas>
+<div class="container-login100" style="background-image: url(http://localhost:3000/images/product/chart.jpg);height:100%;width:100%;background-repeat:no-repeat;background-size:cover;opacity:0%;">
+  <div style="margin-top:-300px;margin-left:40px;">
+    <button mat-raised-button class="btn" color="primary" (click)="onclicktable()">Reports in Table View</button>&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button class="btn" color="primary" (click)="onclickpie()">Reports in PieChart View</button>&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button class="btn" color="primary" (click)="onclickdou()">Reports in DoughnutChart View</button>
   </div>
 </div>
 
-<div style="display: block">
-  <canvas baseChart
-    [data]="doughnutChartData"
-    [labels]="doughnutChartLabels"
-    [chartType]="doughnutChartType"></canvas>
-</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>PIE CHART</p>
 <div style="display: block">
   <canvas baseChart
     [data]="pieChartData"
     [labels]="pieChartLabels"
     [chartType]="pieChartType"></canvas>
 </div>  
+<br>
+<p>DoughnutChart CHART</p>
+<div style="display: block">
+  <canvas baseChart
+  [data]="doughnutChartData"
+  [labels]="doughnutChartLabels"
+  [chartType]="doughnutChartType"></canvas>
+</div>  -->
 

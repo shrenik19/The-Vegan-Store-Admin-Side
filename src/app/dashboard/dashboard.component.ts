@@ -174,7 +174,7 @@ ondeletecat(item:category_class){
           this.dataSource= new MatTableDataSource(this.toparr);
            this.dataSource.paginator = this.paginator;
           this.dataSource.sort=this.Sort;
-                  }
+          }
       );
 
       this._proser.getAllproduct().subscribe(

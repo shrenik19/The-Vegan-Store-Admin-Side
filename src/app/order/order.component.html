@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <p><b style="font-size: 30px;margin-left:350px;">Order Mangement</b></p>
+        <p><b style="font-size: 30px;">Order Management</b></p>
       </div>
     </div>
     <div class="row">
@@ -9,7 +9,7 @@
       </div>
       <div class="col-md-2">
           <div>
-              <button mat-raised-button color="primary" (click)="oncancel()"><mat-icon>delete</mat-icon>Delete Orders</button>
+              <!-- <button mat-raised-button color="primary" (click)="oncancel()"><mat-icon>delete</mat-icon>Delete Orders</button> -->
           </div>
       </div>
     </div>
@@ -39,7 +39,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="o_date">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Date  </th>
-      <td mat-cell *matCellDef="let element"> {{element.o_date}} </td>
+      <td mat-cell *matCellDef="let element"> {{ element.o_date | date: 'MM-dd-yyyy' }} </td>
     </ng-container>
 
  <!-- Name Column -->
@@ -58,9 +58,6 @@
         <button mat-mini-fab color="primary" (click)="oncheck(element)">
           <mat-icon aria-label="Example icon-button with a heart icon">check_circle</mat-icon>
         </button>&nbsp;&nbsp;
-        <button mat-mini-fab color="primary" (click)="ondelete(element)">
-          <mat-icon aria-label="Example icon-button with a heart icon">highlight_off</mat-icon>
-        </button>
       </td>
     </ng-container>
 
@@ -68,4 +65,4 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     
   </table>
-  <button mat-raised-button color="warn" style="margin-left: 62px;" (click)="onclose()">Cancel</button>
+  <button mat-raised-button color="warn" style="margin-left: 76px;" (click)="onclose()">Cancel</button>

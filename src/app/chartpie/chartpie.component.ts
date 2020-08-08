@@ -48,7 +48,7 @@ export class ChartpieComponent implements OnInit {
         });
         this.pieChartLabels=this.name;
         this.pieChartData=[60,40,25,20];
-        this.pieChartType='pie';
+        //this.pieChartType='pie';
 
 
   }

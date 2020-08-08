@@ -39,7 +39,7 @@ export class ChartdouComponent implements OnInit {
           }
         });
         this.doughnutChartLabels=this.name;
-        this.doughnutChartType='doughnut';
+        //this.doughnutChartType='doughnut';
         this.doughnutChartData=[60,40,25,20];
   }
 

@@ -12,12 +12,12 @@ export class AdminAuthguardService {
     if(localStorage.getItem('email_id')=="")
     {
       alert("Page Not found")
-      this._route.navigate[''];
+      this._route.navigate(['']);
     }
     else
     {
       return true;
     }
   }
-  
+
 }
